@@ -61,16 +61,15 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 
 function get_short_url(long_url, api_key)
 {
-    $.getJSON(
-        "https://www.googleapis.com/urlshortener/v1/url?key=" + api_key, 
-        { 
-            "format": "json",
-            "longUrl": long_url, 
-			async: true
-        },
-        function(response)
-        {
-            console.log(response.data.url);
-        }
-    ); 
+    $.ajax({
+       url: 'https://www.googleapis.com/urlshortener/v1/url?key=' + api_key,
+       type: 'POST',
+       contentType: 'application/json; charset=utf-8',
+       data: '{ longUrl: "' + long_url + '"}',
+       dataType: 'json',
+       async: true,
+       success: function(response) {
+           console.log(response.id);
+       }
+    });
 }
