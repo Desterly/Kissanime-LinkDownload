@@ -11,7 +11,10 @@ var long_url;
 var startEpisode;
 do {
 	startEpisode = prompt("Enter episode number you want to start from");
-	if(startEpisode <= 0 || startEpisode > episodeLinks.length) {
+	if(startEpisode === null) {
+    throw new Error("Script canceled by user!");
+  }
+	if(Number(startEpisode) <= 0 || Number(startEpisode) > episodeLinks.length) {
 		alert("Episode number entered must be greater than 0 and lesser than total number of eps");
 	} else {
 		break;
@@ -21,13 +24,21 @@ do {
 var endEpisode;
 do {
 	endEpisode = prompt("Enter episode number you want to end at");
-	if(endEpisode <= 0 || endEpisode > episodeLinks.length || endEpisode < startEpisode) {
+	if(endEpisode === null) {
+	  throw new Error("Script canceled by user!");
+	}
+	if(Number(endEpisode) <= 0 || Number(endEpisode) > episodeLinks.length || Number(endEpisode) < Number(startEpisode)) {
 		alert("Episode number entered must be greater than 0 and lesser than total number of eps");
 	} else {
 		break;
 	}
 } while(true);
 var videoQuality = prompt("Enter video quality you want to download. Example - '1280x720.mp4' (without the quotes)");
+
+// Defining a sensible default value for video quality so we can skip this prompt
+if(videoQuality === null) {
+  videoQuality = '1280x720.mp4';
+}
 
 var links = '\n';
 var i;
