@@ -27,7 +27,7 @@ do {
 		break;
 	}
 } while(true); 
-var videoQuality = prompt("Enter video quality you want to download. Example - '960x720.mp4' (without the quotes)"); 
+var videoQuality = prompt("Enter video quality you want to download. Example - '1280x720.mp4' (without the quotes)"); 
 
 var i; 
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
@@ -67,7 +67,6 @@ function get_short_url(long_url, api_key)
        contentType: 'application/json; charset=utf-8',
        data: '{ longUrl: "' + long_url + '"}',
        dataType: 'json',
-       async: true,
        success: function(response) {
            console.log(response.id);
        }
