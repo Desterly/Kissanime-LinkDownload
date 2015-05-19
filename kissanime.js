@@ -67,6 +67,7 @@ function get_short_url(long_url, api_key)
        contentType: 'application/json; charset=utf-8',
        data: '{ longUrl: "' + long_url + '"}',
        dataType: 'json',
+       async: true,
        success: function(response) {
            console.log(response.id);
        }
