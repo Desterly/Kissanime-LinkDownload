@@ -1,12 +1,11 @@
-var URL = window.location.origin
+var _URL = window.location.origin;
 
 var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
 
 $.ajaxSetup({async:false});
 $.getScript("http://kissanime.com/Scripts/asp.js");
 
-var login = "vergo777";
-var api_key = "R_6a13f014b38f4f80a31cf7d80a7c18c7";
+var api_key = "AIzaSyB3rh1o1g5PRkaPldxW-laX-12e7mhZ5Tg";
 var long_url; 
 
 var startEpisode; 
@@ -33,7 +32,7 @@ var videoQuality = prompt("Enter video quality you want to download. Example - '
 var i; 
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
-         url:    URL + episodeLinks[i], 
+         url:    _URL + episodeLinks[i], 
          success: function(result) {
                     var $result = eval($(result));
 					var stringStart = result.search("var wra"); 
@@ -41,7 +40,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					var javascriptToExecute = result.substring(stringStart, stringEnd);
 					eval(javascriptToExecute);
 					
-					$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
+					$("body").append('<div id="episode' + i + '" style="display: none;"></div>');
 					$('#episode' + i).append(wra); 
 					
 					var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
@@ -50,7 +49,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
 							console.log(i); 
-							get_short_url(long_url, login, api_key);
+							get_short_url(long_url, api_key);
 						}
 					}
                   },
@@ -60,14 +59,12 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 }
 
 
-function get_short_url(long_url, login, api_key)
+function get_short_url(long_url, api_key)
 {
     $.getJSON(
-        "http://api.bitly.com/v3/shorten?callback=?", 
+        "https://www.googleapis.com/urlshortener/v1/url?key=" + api_key, 
         { 
             "format": "json",
-            "apiKey": api_key,
-            "login": login,
             "longUrl": long_url, 
 			async: true
         },
