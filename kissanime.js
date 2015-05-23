@@ -60,8 +60,9 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
+							long_desc = 'Episode_' + i;
 							console.log(i);
-							get_short_url(long_url, api_key);
+							get_short_url(long_desc,long_url, api_key);
 						}
 					}
                   },
@@ -72,7 +73,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 
 console.log(links);
 
-function get_short_url(long_url, api_key)
+function get_short_url(long_desc,long_url, api_key)
 {
     $.ajax({
        url: 'https://www.googleapis.com/urlshortener/v1/url?key=' + api_key,
@@ -81,7 +82,7 @@ function get_short_url(long_url, api_key)
        data: '{ longUrl: "' + long_url + '"}',
        dataType: 'json',
        success: function(response) {
-           links += response.id + "\n";
+           links += '<a href="' + response.id + '">' + long_desc + '</a>\n';
        }
     });
 }
