@@ -60,7 +60,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					for(j = 0; j < downloadQualityOptions.length; j++) {
 						if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
-							long_desc = 'Episode_' + i;
+							long_desc = 'Episode_' + i+1;
 							console.log(i);
 							get_short_url(long_desc,long_url, api_key);
 						}
