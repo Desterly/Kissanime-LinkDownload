@@ -1,7 +1,7 @@
 How to use the script 
 ======================
 
-$.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime.js")
+$.getScript("https://rawgit.com/Desterly/Kissanime-LinkDownload/master/kissanime.js")
 
 Description and usage instructions
 ======================
@@ -24,7 +24,7 @@ The detailed steps to use this script are as follows -
 
 ##4. Paste the following into the console window and press enter 
 
-$.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime.js")
+$.getScript("https://rawgit.com/Desterly/Kissanime-LinkDownload/master/kissanime.js")
 
 ![Screenshot](https://a.pomf.se/svfhlk.png)
 
@@ -46,4 +46,4 @@ $.getScript("https://rawgit.com/Vergo777/Kissanime-LinkDownload/master/kissanime
 
 ![Screenshot](https://a.pomf.se/kpejyt.png)
 
-Once you copy these links you can use something like Internet Download Manager to queue them all up at once and start batch downloading
+Output files show episode number with link to file.  Using utility like DownloadThemAll! it's possible to download by name/episode number
