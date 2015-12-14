@@ -3,7 +3,7 @@ var _URL = window.location.origin;
 var episodeLinks = $('table.listing a').map(function(i,el) { return $(el).attr('href'); });
 
 $.ajaxSetup({async:false});
-$.getScript("http://kissanime.com/Scripts/asp.js");
+$.getScript("https://kissanime.com/Scripts/asp.js");
 
 var api_key = "AIzaSyB3rh1o1g5PRkaPldxW-laX-12e7mhZ5Tg";
 var long_url;
