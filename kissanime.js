@@ -57,14 +57,15 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 
 					var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
 					var j;
-					for(j = 0; j < downloadQualityOptions.length; j++) {
-						if(videoQuality === downloadQualityOptions[j].html()) {
+					j = 0;
+					//for(j = 0; j < downloadQualityOptions.length; j++) {
+					//	if(videoQuality === downloadQualityOptions[j].html()) {
 							long_url = downloadQualityOptions[j].attr('href');
 							long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + videoQuality;
 							console.log(i);
 							get_short_url(long_desc,long_url, api_key);
-						}
-					}
+					//	}
+					//}
                   },
          async:   false,
 		 script:  true
