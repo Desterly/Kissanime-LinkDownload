@@ -63,7 +63,8 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 							long_url = downloadQualityOptions[j].attr('href');
 							long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + videoQuality;
 							console.log(i);
-							get_short_url(long_desc,long_url, api_key);
+							//get_short_url(long_desc,long_url, api_key);
+							links += '<a href="' + long_url + '">' + long_desc + '</a>\n';
 					//	}
 					//}
                   },
