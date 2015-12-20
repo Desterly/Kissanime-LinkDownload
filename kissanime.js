@@ -60,7 +60,9 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					j = 0;
 					var k;
 					k = 0;
+					resolutionloop:
 					for(j=0;j< resolutions.length;j++) {
+						qualityloop:
 						for(k = 0; k < downloadQualityOptions.length;k++)
 						{
 							if (resolutions[j] === downloadQualityOptions[k].html()) {
@@ -68,6 +70,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 								long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + resolutions[j];
 								console.log(i);
 								get_short_url(long_desc,long_url, api_key);
+								break resolutionloop;
 							}
 						}
 					}
