@@ -7,7 +7,7 @@ $.getScript("https://kissanime.com/Scripts/asp.js");
 
 var api_key = "AIzaSyB3rh1o1g5PRkaPldxW-laX-12e7mhZ5Tg";
 var long_url;
-var resolutions = ["1280x720.mp4","960x720.mp4","640x360.mp4","480x360.mp4","320x230.3gp","320x180.3gp"]
+var resolutions = ["1280x720.mp4","960x720.mp4","640x360.mp4","480x360.mp4","320x230.3gp","320x180.3gp"];
 var startEpisode;
 do {
 	startEpisode = prompt("Enter episode number you want to start from");
