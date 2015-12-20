@@ -61,7 +61,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					var k;
 					k = 0;
 					for(j=0;j< resolutions.length;j++) {
-						for(k = 0; k < k.downloadQualityOptions.length;k++)
+						for(k = 0; k < downloadQualityOptions.length;k++)
 						{
 							if (resolutions[j] === downloadQualityOptions[k].html()) {
 								long_url = downloadQualityOptions[k].attr('href');
