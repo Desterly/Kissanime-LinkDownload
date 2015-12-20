@@ -7,7 +7,7 @@ $.getScript("https://kissanime.com/Scripts/asp.js");
 
 var api_key = "AIzaSyB3rh1o1g5PRkaPldxW-laX-12e7mhZ5Tg";
 var long_url;
-
+var resolutions = ["1280x720.mp4","960x720.mp4","640x360.mp4","480x360.mp4","320x230.3gp","320x180.3gp"]
 var startEpisode;
 do {
 	startEpisode = prompt("Enter episode number you want to start from");
@@ -33,12 +33,12 @@ do {
 		break;
 	}
 } while(true);
-var videoQuality = prompt("Enter video quality you want to download. Example - '1280x720.mp4' (without the quotes)");
+//var videoQuality = prompt("Enter video quality you want to download. Example - '1280x720.mp4' (without the quotes)");
 
 // Defining a sensible default value for video quality so we can skip this prompt
-if(videoQuality === null) {
-  videoQuality = '1280x720.mp4';
-}
+//if(videoQuality === null) {
+//  videoQuality = '1280x720.mp4';
+//}
 
 var links = '\n';
 var i;
@@ -58,15 +58,19 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
 					var j;
 					j = 0;
-					//for(j = 0; j < downloadQualityOptions.length; j++) {
-					//	if(videoQuality === downloadQualityOptions[j].html()) {
-							long_url = downloadQualityOptions[j].attr('href');
-							long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + videoQuality;
-							console.log(i);
-							//get_short_url(long_desc,long_url, api_key);
-							links += '<a href="' + long_url + '">' + long_desc + '</a>\n';
-					//	}
-					//}
+					var k;
+					k = 0;
+					for(j=0;j< resolutions.length;j++) {
+						for(k = 0; k < k.downloadQualityOptions.length;k++)
+						{
+							if (resolutions[j] === downloadQualityOptions[k].html()) {
+								long_url = downloadQualityOptions[k].attr('href');
+								long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + resultions[j];
+								console.log(i);
+								get_short_url(long_desc,long_url, api_key);
+							}
+						}
+					}
                   },
          async:   false,
 		 script:  true
