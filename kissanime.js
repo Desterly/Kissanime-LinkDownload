@@ -65,7 +65,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 						{
 							if (resolutions[j] === downloadQualityOptions[k].html()) {
 								long_url = downloadQualityOptions[k].attr('href');
-								long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + resultions[j];
+								long_desc = 'Episode_' + (episodeLinks.length - i) + '_' + resolutions[j];
 								console.log(i);
 								get_short_url(long_desc,long_url, api_key);
 							}
