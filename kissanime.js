@@ -47,6 +47,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
          url:    _URL + episodeLinks[i],
          success: function(result) {
                     var $result = eval($(result));
+                    console.write(result);
 					var stringStart = result.search("var wra");
 					var stringEnd = result.search("document.write");
 					var javascriptToExecute = result.substring(stringStart, stringEnd);
