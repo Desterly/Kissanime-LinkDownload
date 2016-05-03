@@ -46,15 +46,10 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 	jQuery.ajax({
          url:    _URL + episodeLinks[i],
          success: function(result) {
-                    var $result = eval($(result));
-                    console.log(result);
-					var stringStart = result.search("var wra");
-					var stringEnd = result.search("document.write");
-					var javascriptToExecute = result.substring(stringStart, stringEnd);
-					eval(javascriptToExecute);
-
+					var $result = $.parseHTML(result);
+					
 					$("body").append('<div id="episode' + i + '" style="display: none;"></div>');
-					$('#episode' + i).append(wra);
+					$('#episode' + i).append($result.find('#divDownload'));
 
 					var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
 					var j;
