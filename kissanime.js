@@ -47,14 +47,14 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
          url:    _URL + episodeLinks[i],
          success: function(result) {
 					
-        	var $result = eval($(result));
-		var stringStart = result.search("divDownload"); 
-		var stringEnd = result.search("document.write"); 
-		var javascriptToExecute = result.substring(stringStart, stringEnd);
-		eval(javascriptToExecute);
-		$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
-		$('#episode' + i).append(wra); 
-		var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
+        				var $result = eval($(result));
+					var stringStart = result.search("divDownload"); 
+					var stringEnd = result.search("document.write"); 
+					var javascriptToExecute = result.substring(stringStart, stringEnd);
+					eval(javascriptToExecute);
+					$("body").append('<div id="episode' + i + '" style="display: none;"></div>')
+					$('#episode' + i).append(wra); 
+					var downloadQualityOptions = $('#episode' + i + ' a').map(function(i,el) { return $(el); });
 					var j;
 					j = 0;
 					var k;
