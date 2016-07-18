@@ -46,7 +46,10 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 	jQuery.ajax({
          url:    _URL + episodeLinks[i],
          success: function(result) {
-					var $result = $.parseHTML(result);
+					
+					$("body").append('<div id="result' + i + '" style="display: none;"></div>');
+					$result = $('#result' +i);
+					$('#result' +i).append(result);
 					
 					$("body").append('<div id="episode' + i + '" style="display: none;"></div>');
 					$('#episode' + i).append($result.find('#divDownload'));
