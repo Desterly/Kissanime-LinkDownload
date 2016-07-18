@@ -77,7 +77,7 @@ var links = '\n';
 var i;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
 	jQuery.ajax({
-         url:    _URL + episodeLinks[i],
+         url:    URL + episodeLinks[i],
          success: function(result) {
 					var $result = eval($(result));
 					
