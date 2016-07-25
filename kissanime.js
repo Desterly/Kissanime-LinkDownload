@@ -104,7 +104,7 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 							}
 						}
 					}
-		console.log('Completed: ' + count + '/' + ((endEpisode-startEpisode)+1));
+		//console.log('Completed: ' + count + '/' + ((endEpisode-startEpisode)+1));
                 },
          async:   false,
 		 script:  true
