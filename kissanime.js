@@ -1,7 +1,7 @@
 var URL = window.location.origin;
 var hostName = window.location.hostname;
 var fullURL = window.location.href;
-var resolutions = ["1280x720.mp4","1080x720.mp4","960x720.mp4","640x360.mp4","480x360.mp4","320x230.3gp","320x180.3gp"];
+var resolutions = ["1920x1080.mp4","1280x720.mp4","1080x720.mp4","960x720.mp4","640x360.mp4","480x360.mp4","320x230.3gp","320x180.3gp"];
 var api_key = "AIzaSyB3rh1o1g5PRkaPldxW-laX-12e7mhZ5Tg";
 // determine if user is on KissAnime and on the anime's main episode page
 if (hostName.search(/kissanime\.\w+/i) != -1){	
