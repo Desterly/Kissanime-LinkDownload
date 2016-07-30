@@ -81,7 +81,11 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
          url:    URL + episodeLinks[i],
          success: function(result) {
 					var $result = eval($(result));
-					
+					var $test = $result.find('#barTitle');
+					if ($test != null && $test.innerHTML.indexOf("Are you human?") !== -1)
+					{
+						break;
+					}
 					$("body").append('<div id="episode' + i + '" style="display: none;"></div>');
 					$('#episode' + i).append($result.find('#divDownload'));
 
