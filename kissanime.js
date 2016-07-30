@@ -76,7 +76,12 @@ console.log('Ending episode: ' + endEpisode)
 
 var links = '\n';
 var i;
+var humancheck = false;
 for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEpisode); i--) {
+	if (humancheck == true)
+	{
+		break;
+	}
 	jQuery.ajax({
          url:    URL + episodeLinks[i],
          success: function(result) {
@@ -84,7 +89,8 @@ for (i = (episodeLinks.length - startEpisode); i >= (episodeLinks.length - endEp
 					var $test = $result.find('#barTitle');
 					if ($test != null && $test.innerHTML.indexOf("Are you human?") !== -1)
 					{
-						break;
+						humancheck = true;
+						return;
 					}
 					$("body").append('<div id="episode' + i + '" style="display: none;"></div>');
 					$('#episode' + i).append($result.find('#divDownload'));
